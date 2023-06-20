@@ -1,0 +1,163 @@
+// Define a Person class to handle common properties like name and roll number
+class Person {
+    protected String name;
+    protected int rollNumber;
+
+    public Person(String name, int rollNumber) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+    }
+}
+
+// Create an interface for live results
+interface LiveResult {
+    void displayLiveResult();
+}
+
+// Create a Record class to handle student records
+class Record extends Person {
+    private String[] subjects;
+    private int[] marks;
+
+    public Record(String name, int rollNumber, String[] subjects) {
+        super(name, rollNumber);
+        this.subjects = subjects;
+        this.marks = new int[subjects.length];
+    }
+
+    public void inputMarks() {
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < subjects.length; i++) {
+            System.out.print("Enter marks for " + subjects[i] + ": ");
+            marks[i] = sc.nextInt();
+        }
+    }
+
+    public void displayMarks() {
+        System.out.println("Marks for Name: " + name + "\nRoll Number: " + rollNumber);
+        for (int i = 0; i < subjects.length; i++) {
+            System.out.println(subjects[i] + ": " + marks[i]);
+        }
+    }
+}
+
+// Create a LiveResultRecord class that extends the Record class and implements the LiveResult interface
+class LiveResultRecord extends Record implements LiveResult {
+    public LiveResultRecord(String name, int rollNumber, String[] subjects) {
+        super(name, rollNumber, subjects);
+    }
+
+    @Override
+    public void displayLiveResult() {
+        System.out.println("Live Result for Name: " + name + "\nRoll Number: " + rollNumber);
+        for (int i = 0; i < subjects.length; i++) {
+            System.out.println(subjects[i] + ": " + marks[i]);
+        }
+    }
+}
+
+// Create a FileDrawing class to handle file operations
+class FileDrawing {
+    public static void drawToFile(String filename, String content) {
+        try {
+            FileWriter fileWriter = new FileWriter(filename);
+            fileWriter.write(content);
+            fileWriter.close();
+            System.out.println("File created: " + filename);
+        } catch (IOException e) {
+            System.out.println("An error occurred while writing to the file.");
+            e.printStackTrace();
+        }
+    }
+}
+
+// Main class to run the program
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter student's name: ");
+        String name = sc.nextLine();
+        System.out.print("Enter student's roll number: ");
+        int rollNumber = sc.nextInt();
+        sc.nextLine(); // Consume the newline character
+        System.out.print("Enter the number of subjects: ");
+        int numSubjects = sc.nextInt();
+        sc.nextLine(); // Consume the newline character
+        String[] subjects = new String[numSubjects];
+        for (int i = 0; i < numSubjects; i++) {
+            System.out.print("Enter subject " + (i + 1) + ": ");
+            subjects[i] = sc.nextLine();
+        }
+
+        // Create an instance of LiveResultRecord
+        LiveResultRecord student = new LiveResultRecord(name, rollNumber, subjects);
+
+        System.out.println("\n---- Student Management System -----");
+        int choice;
+        do {
+            System.out.println("\n1. Input Marks");
+            System.out.println("2. Display Marks");
+            System.out.println("3. Display Live Result");
+            System.out.println("4. Save Marks to File");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice: ");
+            choice = sc.nextInt();
+            sc.nextLine(); // Consume the newline character
+            switch (choice) {
+                case 1:
+                    student.inputMarks();
+                    break;
+                case 2:
+                    student.displayMarks();
+                    break;
+                case 3:
+                    student.displayLiveResult();
+                    break;
+                case 4:
+                    String content = "Marks for Name: " + student.name + "\nRoll Number: " + student.rollNumber + "\n";
+                    for (int i = 0; i < subjects.length; i++) {
+                        content += subjects[i] + ": " + student.marks[i] + "\n";
+                    }
+                    FileDrawing.drawToFile("marks.txt", content);
+                    break;
+                case 5:
+                    System.out.println("Exiting...");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        } while (choice != 5);
+        sc.close();
+    }
+}
+output:Enter student's name: John DoeEnter student's roll number: 12345
+Enter the number of subjects: 3Enter subject 1: Math
+Enter subject 2: ScienceEnter subject 3: English
+---- Student Management System -----
+1. Input Marks
+2. Display Marks3. Display Live Result
+4. Save Marks to File5. Exit
+Enter your choice: 1
+Enter marks for Math: 85Enter marks for Science: 90
+Enter marks for English: 78
+1. Input Marks2. Display Marks
+3. Display Live Result4. Save Marks to File
+5. ExitEnter your choice: 2
+Marks for Name: John DoeRoll Number: 12345
+Math: 85Science: 90
+English: 78
+1. Input Marks2. Display Marks
+3. Display Live Result4. Save Marks to File
+5. ExitEnter your choice: 3
+Live Result for Name: John DoeRoll Number: 12345
+Math: 85Science: 90
+English: 78
+1. Input Marks2. Display Marks
+3. Display Live Result4. Save Marks to File
+5. ExitEnter your choice: 4
+File created: marks.txt
+1. Input Marks2. Display Marks
+3. Display Live Result4. Save Marks to File
+5. ExitEnter your choice: 5
+Exiting...
