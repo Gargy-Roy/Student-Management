@@ -15,12 +15,13 @@ interface LiveResult {
 }
 
 // Create a Record class to handle student records
-class Record extends Person {
+class Record{
     private String[] subjects;
     private int[] marks;
 
     public Record(String name, int rollNumber, String[] subjects) {
-        super(name, rollNumber);
+        this.name=name;
+        this.rollNumber=rollNumber;
         this.subjects = subjects;
         this.marks = new int[subjects.length];
     }
