@@ -133,7 +133,7 @@ public class Main {
 }
 
 
-Enter student's name: John Doe
+Enter student's name: Gargy Roy
 Enter student's roll number: 123
 Enter the number of subjects: 3
 Enter subject 1: Math
@@ -160,7 +160,7 @@ Enter marks for English: 92
 5. Exit
 Enter your choice: 2
 
-Marks for Name: John Doe
+Marks for Name: Gargy Roy
 Roll Number: 123
 Math: 90
 Science: 85
@@ -173,7 +173,7 @@ English: 92
 5. Exit
 Enter your choice: 3
 
-Live Result for Name: John Doe
+Live Result for Name: Gargy Roy
 Roll Number: 123
 Math: 90
 Science: 85
