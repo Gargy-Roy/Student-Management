@@ -132,9 +132,9 @@ public class Main {
     }
 }
 
-
+Output:
 Enter student's name: Gargy Roy
-Enter student's roll number: 123
+Enter student's roll number: 4783
 Enter the number of subjects: 3
 Enter subject 1: Math
 Enter subject 2: Science
@@ -148,10 +148,9 @@ Enter subject 3: English
 4. Save Marks to File
 5. Exit
 Enter your choice: 1
-
-Enter marks for Math: 90
-Enter marks for Science: 85
-Enter marks for English: 92
+Enter marks for Math: 98
+Enter marks for Science: 97
+Enter marks for English: 99
 
 1. Input Marks
 2. Display Marks
@@ -159,12 +158,11 @@ Enter marks for English: 92
 4. Save Marks to File
 5. Exit
 Enter your choice: 2
-
 Marks for Name: Gargy Roy
-Roll Number: 123
-Math: 90
-Science: 85
-English: 92
+Roll Number: 4783
+Math: 98
+Science: 97
+English: 99
 
 1. Input Marks
 2. Display Marks
@@ -172,12 +170,11 @@ English: 92
 4. Save Marks to File
 5. Exit
 Enter your choice: 3
-
 Live Result for Name: Gargy Roy
-Roll Number: 123
-Math: 90
-Science: 85
-English: 92
+Roll Number: 4783
+Math: 98
+Science: 97
+English: 99
 
 1. Input Marks
 2. Display Marks
@@ -192,11 +189,33 @@ File created: marks.txt
 3. Display Live Result
 4. Save Marks to File
 5. Exit
+Enter your choice: 3
+Live Result for Name: Gargy Roy
+Roll Number: 4783
+Math: 98
+Science: 97
+English: 99
+
+1. Input Marks
+2. Display Marks
+3. Display Live Result
+4. Save Marks to File
+5. Exit
+Enter your choice: 2
+Marks for Name: Gargy Roy
+Roll Number: 4783
+Math: 98
+Science: 97
+English: 99
+
+1. Input Marks
+2. Display Marks
+3. Display Live Result
+4. Save Marks to File
+5. Exit
 Enter your choice: 5
 Exiting...
-       
 
+Process finished with exit code 0
 
-
-             
        
